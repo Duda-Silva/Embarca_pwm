@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 16.05,
+      "left": 99.6,
+      "attrs": { "env": "arduino-community" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": 46, "left": 288, "attrs": {} }
+  ],
+  "connections": [
+    [ "$serialMonitor:RX", "pico:GP0", "", [] ],
+    [ "servo1:GND", "pico:GND.8", "black", [ "h-28.8", "v-48" ] ],
+    [ "servo1:V+", "pico:3V3", "red", [ "h-57.6", "v-38.3" ] ],
+    [ "pico:GP22", "servo1:PWM", "green", [ "h78", "v-19.4" ] ]
+  ],
+  "dependencies": {}
+}
