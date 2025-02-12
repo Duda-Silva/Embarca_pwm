@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
-#include "hardware/pwm.h"
+#include "hardware/pwm.h" //biblioteca para gerenciamento de PWM
 #include "pico/time.h" //biblioteca para gerenciamento de tempo
 #include "hardware/irq.h" //biblioteca para gerenciamento de interrupções
 
 const uint SERVO_MOTOR = 22;
 const uint16_t PERIOD = 20000; // Período de 20ms para frequência de 50Hz
-const float DIVIDER_PWM = 125.0; // Ajuste conforme necessário para obter a frequência correta
+const float DIVIDER_PWM = 125.0; // Divisor de clock 
 const uint16_t LED_STEP = 5; // Passo para movimento suave
 uint16_t LED_LEVEL = 10000; // Ciclo ativo inicial
 
@@ -57,8 +57,8 @@ int main() {
     // Mover servo suavemente entre 0 e 180 graus
     while (true) {
         move_servo_smoothly(sliceNum, 500, 2400);
-        sleep_ms(1000);
+        sleep_ms(100);
         move_servo_smoothly(sliceNum, 2400, 500);
-        sleep_ms(1000);
+        sleep_ms(100);
     }
 }
